@@ -1,5 +1,5 @@
 import React from "react";
-import ResultsContainer from "../../components/ResultsContainer/ResultsContainer";
+import ResultsContainer from "../../components/ResultsContainer";
 import API from "../../utils/API";
 
 class Saved extends React.Component {
@@ -11,7 +11,7 @@ class Saved extends React.Component {
     }
 
     componentWillMount () {
-        API.getBooks().then(
+        API.getBook().then(
             (response) => {
                 this.setState({ savedBooks: response.data });
             }

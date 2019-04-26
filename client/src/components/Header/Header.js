@@ -3,8 +3,8 @@ import locImage from "../../images/LibraryOfCongress.jpg"
 
 const headerStyle = {
     "backgroundImage": `url(${locImage})`,
-    "maxWidth": "100vh",
-    "height": "calc(100vh * .43333)",
+    "maxWidth": "100vw",
+    "height": "calc(100vw * .43333)",
     "backgroundSize": "cover",
     "position": "relative"
 }

@@ -1,45 +1,51 @@
 import React from "react";
-import SearchForm from "../SearchForm/SearchForm";
-import ResultsContainer from "../ResultsContainer/ResultsContainer";
-import API from "../../utils/API";
+import BookResult from "../BookResults";
 
-class Search extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      bookInput: "",
-      bookData: []
+function ResultsContainer(props) {
+    if(props.path === "/") {
+        return(
+            <div id="resultsContainer">
+                <h3>Results Found</h3>
+                {props.bookData.map((book) => {
+                    const bookInfo = book.volumeInfo;
+                    return <BookResult
+                    title={bookInfo.title}
+                    authors={bookInfo.authors}
+                    description={bookInfo.description}
+                    link={bookInfo.canonicalVolumeLink}
+                    img={bookInfo.imageLinks}
+                    path={props.path}
+                    key={book.id}/>
+                })}
+            </div>
+        );
+    } else if(props.path === "/saved") {
+        if(props.savedBooks.length > 0) {
+            return(
+                <div id="resultsContainer">
+                    <h3>Saved Books</h3>
+                    {props.savedBooks.map((book) => {
+                        return <BookResult
+                        title={book.title}
+                        authors={book.authors}
+                        description={book.description}
+                        link={book.link}
+                        img={book.img}
+                        id={book._id}
+                        path={props.path}
+                        key={book._id}/>
+                    })}
+                </div>
+            );
+        } else {
+            return(
+                 <div id="resultsContainer">
+                    <h3>Saved Books</h3>
+                    <p>No saved books.</p>
+                </div>
+            );
+        }
     }
-    this.handleSearchClick = this.handleSearchClick.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange (e) {
-    e.preventDefault();
-    this.setState({ bookInput: e.target.value })
-  }
-
-  handleSearchClick (e) {
-    e.preventDefault();
-    API.getBook(this.state.bookInput)
-      .then(
-        (response) => {
-          this.setState({ bookData: response.data });
-          this.setState({ bookInput: "" });
-        }
-      );
-  }
-
-  render () {
-    return (
-      <main>
-        <SearchForm handleChange={this.handleChange} handleSearchClick={this.handleSearchClick} />
-        {(this.state.bookData.length > 0) ?
-          <ResultsContainer bookData={this.state.bookData} path={this.props.match.path} /> : null
-        }
-      </main>
-    );
-  }
 }
 
-export default Search;
+export default ResultsContainer;

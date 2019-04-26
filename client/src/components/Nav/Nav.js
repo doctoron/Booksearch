@@ -1,15 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import Jumbotron from "../Jumbotron";
+// import { Link } from "react-router-dom";
 
-function Nav () {
+const Nav = () => {
   return (
     <nav>
-      <h2 className="nav-head">Google (React.js) Reading List</h2>
-      <Link to="/">Search</Link>
-      <Link to="/saved">Saved</Link>
+      <h1 className="nav-head">Google Book Search & (React.js) Reading List</h1>
+      {/* <Link to="/">Search</Link>
+      <Link to="/saved">Saved</Link> */}
     </nav>
-
   );
 }
+
 
 export default Nav;

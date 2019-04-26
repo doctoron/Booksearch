@@ -1,7 +1,7 @@
-import React from "react";
-import SearchForm from "../../components/SearchForm/SearchForm";
-import ResultsContainer from "../../components/ResultsContainer/ResultsContainer";
-import API from "../../utils/API";
+import React from 'react';
+import SearchForm from '../SearchForm';
+import BookDetails from '../BookDetails';
+import API from '../../utils/API';
 
 class Search extends React.Component {
     constructor (props) {
@@ -28,15 +28,19 @@ class Search extends React.Component {
                     this.setState({ bookData: response.data });
                     this.setState({ bookInput: "" });
                 }
-            );
+            )
+            .catch(err=> 
+                console.log(err))
+
     }
 
     render () {
+        console.log(this.state);
         return (
             <main>
                 <SearchForm handleChange={this.handleChange} handleSearchClick={this.handleSearchClick} />
                 {(this.state.bookData.length > 0) ?
-                    <ResultsContainer bookData={this.state.bookData} path={this.props.match.path} /> : null
+                    <BookDetails bookData={this.state.bookData} path={this.props.match.path} /> : null
                 }
             </main>
         );
