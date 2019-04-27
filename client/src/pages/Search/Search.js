@@ -21,11 +21,11 @@ class Search extends React.Component {
 
     handleSearchClick (e) {
         e.preventDefault();
-        API.getBook(this.state.bookInput)
+        API.search(this.state.bookInput)
             .then(
                 (response) => {
-                    console.log(response.data)
-                    this.setState({ bookData: response.data });
+                    // console.log('my Google Book Coming Back!', response.data.items[0].volumeInfo);
+                    this.setState({ bookData: response.data.items[0].volumeInfo });
                     this.setState({ bookInput: "" });
                 }
             )
@@ -34,14 +34,14 @@ class Search extends React.Component {
 
     }
 
-    render () {
-        console.log(this.state);
+    render () {        
         return (
             <main>
                 <SearchForm handleChange={this.handleChange} handleSearchClick={this.handleSearchClick} />
-                {(this.state.bookData.length > 0) ?
-                    <BookDetails bookData={this.state.bookData} path={this.props.match.path} /> : null
-                }
+                {/* {(this.state.bookData.length > 0) ? */}
+                    <BookDetails bookData={this.state.bookData} path={this.props.match.path} />
+                     {/* : null */}
+                {/* } */}
             </main>
         );
     }

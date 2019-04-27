@@ -5,10 +5,8 @@ import Search from './pages/Search/Search';
 import Saved from "./pages/Saved";
 import Home from './pages/Home';
 import Modal from './components/Modal/Modal';
-// import Jumbotron from 'react-bootstrap/Jumbotron'
 import Nav from "./components/Nav";
 import LibraryPic from './images/LibraryOfCongress.jpg';
-import Header from "./components/Header";
 
 const backgroundStyles = {
   backgroundImage: `url(${LibraryPic})`

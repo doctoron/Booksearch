@@ -4,8 +4,10 @@ import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 
-const BookDetails = ({ bookData }) => {
-  const { title, author, synopsis } = bookData[0];
+const BookDetails = (props) => {
+  const { title, author, synopsis } = props.bookData;
+  console.log(props.bookData);
+
   return (
     <div id="resultsContainer">
 

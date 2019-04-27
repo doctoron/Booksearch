@@ -7,6 +7,16 @@ body, html {
 #root {
   height: 100%;
 }
+
+#resultsContainer {
+  color: whitesmoke;
+  background: darkolivegreen;
+}
+
+#searchContainer {
+  color: whitesmoke;
+  background: darkolivegreen;
+}
 main {
   height: 100%;
   background-position: center;
