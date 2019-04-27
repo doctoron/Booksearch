@@ -11,11 +11,14 @@ body, html {
 #resultsContainer {
   color: whitesmoke;
   background: darkolivegreen;
+  padding-left: 20px;
+  padding-right: 30px;
 }
 
 #searchContainer {
   color: whitesmoke;
   background: darkolivegreen;
+
 }
 main {
   height: 100%;
