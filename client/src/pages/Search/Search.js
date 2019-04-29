@@ -25,7 +25,7 @@ class Search extends React.Component {
             .then(
                 (response) => {
                     this.setState({ bookData: response.data.items[0].volumeInfo });
-                    // console.log("Search ln30: What's in the bookData?", this.setState);
+                    console.log("Search ln38: What's bookData?", this.setState);
                     this.setState({ bookInput: "" });
                 }
             )

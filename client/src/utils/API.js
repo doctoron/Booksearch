@@ -4,32 +4,33 @@ const BASEURL = "https://www.googleapis.com/books/v1/volumes?q=";
 export default {
   // Export an object with a "search" method that searches the Google Books API for the passed query
 
-  search: function(query) {
-      console.log("GooogleAPI call", query);
+  search: (query) => {
+    console.log("GooogleAPI call", query);
     return axios.get(BASEURL + query);
   },
   // Gets all books
-  getAllBooks: function () {
+  getAllBooks: ()=> {
     return axios.get("api/books/");
   },
   // Gets authorization
-  getAuthorized: function() {
+  getAuthorized: () => {
     return axios.post("/api/login");
   },
   // Gets the book with the given id
-  getBook: function(id) {
-    console.log('id',id);
-    return axios.get("/api/books/" + id);
+  getBook: (id) => {
+    console.log("id", id);
+    return axios.get(`/api/books/" ${id}`);
   },
   // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/books/" + id);
+  deleteBook:  (id) => {
+    return axios.delete(`/api/books/" ${id}`);
   },
   // Saves a book to the database
-  saveBook: function(bookData) {
+  saveBook: (bookData) => {
     return axios.post("/api/saved", bookData);
   },
-  addBookToDB: function(bookData) {
-    return axios.post("/api/books/")
+  // Creates an instance of book in the db
+  addBookToDB: (bookData) => {
+    return axios.post("/api/books/", bookData);
   }
 };

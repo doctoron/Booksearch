@@ -1,5 +1,6 @@
 import React from "react";
 import locImage from "../../images/LibraryOfCongress.jpg"
+import '../Header/Header.css';
 
 const headerStyle = {
     "backgroundImage": `url(${locImage})`,
@@ -12,8 +13,7 @@ const headerStyle = {
 function Header () {
     return (
         <header style={headerStyle}>
-            <h1>Google Books Search (React.js)</h1>
-            <p>Search, Save and Build A Book Collection</p>
+            <h4>Search, Save and Build A Book Collection</h4>
         </header>
     );
 }
