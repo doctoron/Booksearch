@@ -19,7 +19,7 @@ class BookResult extends React.Component {
       title: this.props.title,
       authors: this.props.authors,
       link: this.props.link,
-      img: this.props.img,
+      image: this.props.image,
       description: this.props.description
     }
     e.preventDefault();
@@ -55,24 +55,27 @@ class BookResult extends React.Component {
         <div className="row">
           <div className="aboutBook">
             <h4>{this.props.title}</h4>
-            <p>By: {(this.props.authors) ? this.props.authors.join(", ") : "N/A"}</p>
+            <p>By: {(this.props.authors) ? this.props.authors.join(", ") : "N/A"} </p>
           </div>
+          <br></br>
           <div className="btnDiv">
-            {
+            { 
               // if link to book exists include View button else do not
-              (this.props.link) ? <a href={this.props.link} target="_blank" rel="noopener noreferrer"><button type="button" name="view">View</button></a> : null
+              (this.props.link) ? <a href={this.props.link} target="_blank" rel="noopener noreferrer"><button type="button" name="view"> View</button></a> : null
             }
             {
               // if this.props.path is "/" display save button else display Delete button
-              (this.props.path === "/") ? <button type="button" name="save" onClick={this.handleSaveClick} disabled={this.state.saved}>{(this.state.saved) ? "Saved" : "Save"}</button> : <button type="button" name="Delete" onClick={this.handleDeleteClick} disabled={this.state.deleted}>Delete</button>
+              (this.props.path === "/") ? <button type="button" name="save" onClick={this.handleSaveClick} disabled={this.state.saved}>{(this.state.saved) ? "Saved" : 
+              "Save"}</button> : 
+              <button type="button" name="Delete" onClick={this.handleDeleteClick} disabled={this.state.deleted}>Delete</button>
             }
           </div>
         </div>
         <div className="row">
-          {(this.props.img) ? <img src={
-            // if smallthubmail exists on this.props.img use that else if thumbnail exists on this.props.img use that else leave src empty
-            (this.props.img.smallThumbnail) ? this.props.img.smallThumbnail :
-              (this.props.img.thumbnail) ? this.props.img.thumbnail : ""
+          {(this.props.image) ? <img src={
+            // if smallthubmail exists on this.props.image use that else if thumbnail exists on this.props.image use that else leave src empty
+            (this.props.imgage) ? this.props.imgage :
+              (this.props.imgage) ? this.props.imgage : ""
           } alt="book cover" /> : null}
           <p>{(this.props.description) ? this.props.description : "N/A"}</p>
         </div>

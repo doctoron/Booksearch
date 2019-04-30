@@ -7,6 +7,7 @@ const ResultsContainer = (props) => {
         return(
             <div id="resultsContainer">
                 <h3>Results Found</h3>
+                {/* <img src={props.bookData.image} alt="book thumbnail"/> */}
                 {props.bookData.map((book) => {
                     const bookInfo = book.volumeInfo;
                     return <BookResult
@@ -14,7 +15,7 @@ const ResultsContainer = (props) => {
                     authors={bookInfo.author}
                     description={bookInfo.description}
                     link={bookInfo.link}
-                    img={bookInfo.imageLinks}
+                    image={bookInfo.imageLinks}
                     path={props.path}
                     key={book.id}/>
                 })}
@@ -26,12 +27,13 @@ const ResultsContainer = (props) => {
                 <div id="resultsContainer">
                     <h3>Saved Books</h3>
                     {props.savedBooks.map((book) => {
+                        // console.log("Saved Books:, {props.savedBooks.map((book)")
                         return <BookResult
                         title={book.title}
                         authors={book.author}
                         description={book.description}
                         link={book.link}
-                        img={book.img}
+                        image={book.imageLinks}
                         id={book._id}
                         path={props.path}
                         key={book._id}/>

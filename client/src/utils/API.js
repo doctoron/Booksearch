@@ -10,10 +10,12 @@ export default {
   },
   // Gets all books
   getAllBooks: ()=> {
+    console.log("Retrieving all books")
     return axios.get("api/books");
   },
   // Gets authorization
   getAuthorized: () => {
+    console.log("Authorization function not yet built!")
     return axios.post("/api/login");
   },
   // Gets the book with the given id
@@ -23,11 +25,12 @@ export default {
   },
   // Deletes the book with the given id
   deleteBook:  (id) => {
+    console.log("Book Deleted from DB");
     return axios.delete(`/api/books/" ${id}`);
   },
   // Creates an instance of book in the db
   addBookToDB: (bookData) => {
-    console.log("FRONT API")
+    console.log("Book Added to DB");
     return axios.post("/api/books", bookData);
   }
 };

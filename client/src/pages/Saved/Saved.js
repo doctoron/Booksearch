@@ -1,6 +1,7 @@
 import React from "react";
 import ResultsContainer from "../../components/ResultsContainer";
 import API from "../../utils/API";
+import "../Saved/Saved.css"
 
 class Saved extends React.Component {
     constructor (props) {
