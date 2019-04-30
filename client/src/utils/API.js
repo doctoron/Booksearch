@@ -10,7 +10,7 @@ export default {
   },
   // Gets all books
   getAllBooks: ()=> {
-    return axios.get("api/books/");
+    return axios.get("api/books");
   },
   // Gets authorization
   getAuthorized: () => {
@@ -25,12 +25,9 @@ export default {
   deleteBook:  (id) => {
     return axios.delete(`/api/books/" ${id}`);
   },
-  // Saves a book to the database
-  saveBook: (bookData) => {
-    return axios.post("/api/saved", bookData);
-  },
   // Creates an instance of book in the db
   addBookToDB: (bookData) => {
-    return axios.post("/api/books/", bookData);
+    console.log("FRONT API")
+    return axios.post("/api/books", bookData);
   }
 };

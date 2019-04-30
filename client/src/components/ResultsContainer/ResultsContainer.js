@@ -11,9 +11,9 @@ const ResultsContainer = (props) => {
                     const bookInfo = book.volumeInfo;
                     return <BookResult
                     title={bookInfo.title}
-                    authors={bookInfo.authors}
+                    authors={bookInfo.author}
                     description={bookInfo.description}
-                    link={bookInfo.canonicalVolumeLink}
+                    link={bookInfo.link}
                     img={bookInfo.imageLinks}
                     path={props.path}
                     key={book.id}/>
@@ -28,7 +28,7 @@ const ResultsContainer = (props) => {
                     {props.savedBooks.map((book) => {
                         return <BookResult
                         title={book.title}
-                        authors={book.authors}
+                        authors={book.author}
                         description={book.description}
                         link={book.link}
                         img={book.img}

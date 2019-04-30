@@ -14,6 +14,11 @@ const BookDetails = (props) => {
         <h5>{props.bookData.authors}</h5>
         <h5>{props.bookData.description}</h5>
       </main>
+      {
+        props.bookData.title ? 
+          <button onClick={()=>props.saveBook(props.bookData)}>Save Book</button>
+          : null
+      }
     </div>
   );
 };

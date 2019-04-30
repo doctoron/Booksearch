@@ -24,8 +24,16 @@ class Search extends React.Component {
         API.search(this.state.bookInput)
             .then(
                 (response) => {
-                    this.setState({ bookData: response.data.items[0].volumeInfo });
-                    console.log("Search ln38: What's bookData?", this.setState);
+                    var res = response.data.items[0].volumeInfo;
+                    var book = {
+                        title: res.title,
+                        author: res.authors,
+                        description: res.description,
+                        image: res.imageLinks.smallThumbnail,
+                        link: res.infoLink,
+                    }
+                    this.setState({ bookData: book });
+                    console.log("Search ln38: What's bookData?", this.state.bookData);
                     this.setState({ bookInput: "" });
                 }
             )
@@ -34,12 +42,19 @@ class Search extends React.Component {
 
     }
 
+    handleSaveBook = (data) => {
+        API.addBookToDB(data);
+        this.setState({
+            bookData: []
+        })
+    }
+
     render () {        
         return (
             <main>
                 <SearchForm handleChange={this.handleChange} handleSearchClick={this.handleSearchClick} />
                 {/* {(this.state.bookData.length > 0) ? */}
-                    <BookDetails bookData={this.state.bookData} path={this.props.match.path} />
+                    <BookDetails bookData={this.state.bookData} path={this.props.match.path} saveBook={this.handleSaveBook} />
                      {/* : null */}
                 {/* } */}
             </main>
