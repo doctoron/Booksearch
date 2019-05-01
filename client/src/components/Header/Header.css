@@ -1,4 +1,6 @@
-body, h3, h4, h5 {
+ body, h3, h4, h5 {
     align-content: center;
-    background-color: #ffffff;
+    background-color: #000000;
+    color: white;
+    text-shadow: 2px 2px 4px #daa520;
 }
