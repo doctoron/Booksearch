@@ -27,16 +27,15 @@ const ResultsContainer = (props) => {
                 <div id="resultsContainer">
                     <h3>Saved Books</h3>
                     {props.savedBooks.map((book) => {
-                        // console.log("Saved Books:, {props.savedBooks.map((book)")
-                        return <BookResult
-                        title={book.title}
-                        authors={book.author}
-                        description={book.description}
-                        link={book.link}
-                        image={book.imageLinks}
-                        id={book._id}
-                        path={props.path}
-                        key={book._id}/>
+                        return <BookResult 
+                        title={ book.title }
+                        authors={ book.author }
+                        description={ book.description }
+                        link={ book.link }
+                        image={ book.imageLinks }
+                        id={ book._id }
+                        path={ props.path }
+                        key={ book._id }/>
                     })}
                 </div>
             );

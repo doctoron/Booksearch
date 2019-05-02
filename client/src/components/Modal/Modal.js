@@ -44,8 +44,8 @@ class Modal extends Component {
                                 </Link>
                             </div>
                             <div className="modal-body">
-                                <input name="username" value={username} type="text" onChange={this.handleChange} />
-                                <input name="password" value={password} type="password" onChange={this.handleChange} />
+                                <input name="username" value={username} type="text" placeholder=" e-mail" onChange={this.handleChange} />
+                                <input name="password" value={password} type="password" placeholder=" password"onChange={this.handleChange} />
                             </div>
                             <div className="modal-footer">
                                 <button type="submit" className="btn btn-primary">Submit</button>

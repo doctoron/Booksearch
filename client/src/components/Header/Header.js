@@ -13,6 +13,7 @@ const headerStyle = {
 function Header () {
     return (
         <header style={headerStyle}>
+            <h2>Google Book Search & Reading List</h2>
             <h4>Search, Save and Build A Book Collection</h4>
         </header>
     );

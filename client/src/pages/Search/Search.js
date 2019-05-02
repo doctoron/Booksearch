@@ -24,8 +24,9 @@ class Search extends React.Component {
         API.search(this.state.bookInput)
             .then(
                 (response) => {
-                    var res = response.data.items[0].volumeInfo;
-                    var book = {
+                    // let res = response.data.items[0].volumeInfo;
+                    let res = response.data.items[0].volumeInfo;
+                    const book = {
                         title: res.title,
                         author: res.authors,
                         description: res.description,
@@ -33,11 +34,11 @@ class Search extends React.Component {
                         link: res.infoLink,
                     }
                     this.setState({ bookData: book });
-                    console.log("Search ln38: What's bookData?", this.state.bookData);
+                    // console.log("Search ln38: What's bookData?", this.state.bookData);
                     this.setState({ bookInput: "" });
                 }
             )
-            .catch(err=> 
+            .catch(err =>
                 console.log(err))
 
     }
@@ -49,13 +50,13 @@ class Search extends React.Component {
         })
     }
 
-    render () {        
+    render () {
         return (
             <main>
                 <SearchForm handleChange={this.handleChange} handleSearchClick={this.handleSearchClick} />
                 {/* {(this.state.bookData.length > 0) ? */}
-                    <BookDetails bookData={this.state.bookData} path={this.props.match.path} saveBook={this.handleSaveBook} />
-                     {/* : null */}
+                <BookDetails bookData={this.state.bookData} path={this.props.match.path} saveBook={this.handleSaveBook} />
+                {/* : null */}
                 {/* } */}
             </main>
         );

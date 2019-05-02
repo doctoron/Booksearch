@@ -59,21 +59,20 @@ class BookResult extends React.Component {
           </div>
           <br></br>
           <div className="btnDiv">
-            { 
+            {
               // if link to book exists include View button else do not
-              (this.props.link) ? <a href={this.props.link} target="_blank" rel="noopener noreferrer"><button type="button" name="view"> View</button></a> : null
+              (this.props.link) ? <a href={this.props.link} target="_blank" rel="noopener noreferrer"><button className="w3-btn w3-green " type="button" name="view"> View</button></a> : null
             }
             {
               // if this.props.path is "/" display save button else display Delete button
-              (this.props.path === "/") ? <button type="button" name="save" onClick={this.handleSaveClick} disabled={this.state.saved}>{(this.state.saved) ? "Saved" : 
-              "Save"}</button> : 
-              <button type="button" name="Delete" onClick={this.handleDeleteClick} disabled={this.state.deleted}>Delete</button>
+              (this.props.path === "/") ? <button className="w3-btn w3-white" type="button" name="save" onClick={this.handleSaveClick} disabled={this.state.saved}>{(this.state.saved) ? "Saved" :
+                "Save"}</button> :
+                <button className="w3-btn w3-red" type="button" name="Delete" onClick={this.handleDeleteClick} disabled={this.state.deleted}>Delete</button>
             }
           </div>
         </div>
         <div className="row">
           {(this.props.image) ? <img src={
-            // if smallthubmail exists on this.props.image use that else if thumbnail exists on this.props.image use that else leave src empty
             (this.props.imgage) ? this.props.imgage :
               (this.props.imgage) ? this.props.imgage : ""
           } alt="book cover" /> : null}
